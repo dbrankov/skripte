@@ -14,6 +14,7 @@
 # Idealno iscitava iz passwd fajla ta imena i automatski ih generise
 # Verzija 0.01 treba da pokupi username iz cmd prompta i da pronadje
 # ime i prezime u passwdu te da generise aliase
+# podrazumeva se da su Ime i Prezime uneti sa prvim velikim slovom
 #
 # Zavrsetak programa je naredba newaliases koja updatuje postfix bazu aliasa
 
