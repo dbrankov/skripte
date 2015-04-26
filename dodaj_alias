@@ -52,7 +52,7 @@ read yn
 
 # napuni fajl aliases sa kombinacijama koje su potrebne
 echo "# separaor za korisnika $username"  >> /etc/aliases
-echo $username":   "$username"@lan42-25.tmf.bg.ac.rs" >> /etc/aliases
+echo $username":   "$username"@example.com" >> /etc/aliases
 echo $sime"_"$sprezime":   "$username >> /etc/aliases
 echo $sime"."$sprezime":   "$username >> /etc/aliases
 echo $ime"_"$prezime":   "$username >> /etc/aliases
