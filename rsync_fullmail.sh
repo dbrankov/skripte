@@ -10,14 +10,14 @@ cd /root/skripte
 
 
 
-#rsync -haz --delete -i  --exclude-from='testexclude' /* 147.91.42.75:/home/BACKUP/Mail/
-#rsync -haz --delete -i  --include-from='testinclude' /home/* 147.91.42.75:/home/BACKUP/ELAB/home
+#rsync -haz --delete -i  --exclude-from='testexclude' /*  REMOTECOMP:/PATH_TO_BACKUP/ELAB/
+#rsync -haz --delete -i  --include-from='testinclude' /home/*  REMOTECOMP:/PATH_TO_BACKUP/ELAB/
 
-rsync -haz --delete --log-file /var/log/rsync_backup.log --rsh='ssh -p4000' /home 147.91.42.75:/home/BACKUP/ELAB/
+rsync -haz --delete --log-file /var/log/rsync_backup.log --rsh='ssh -p4000' /home REMOTECOMP:/PATH_TO_BACKUP/ELAB/
 
-rsync -haz --delete --rsh='ssh -p4000' /etc 147.91.42.75:/home/BACKUP/ELAB/
-#rsync -haz --delete --rsh='ssh -p4000' /var/spool 147.91.42.75:/home/BACKUP/ELAB/
-rsync -haz --delete  --rsh='ssh -p4000' /root 147.91.42.75:/home/BACKUP/ELAB/
+rsync -haz --delete --rsh='ssh -p4000' /etc /home REMOTECOMP:/PATH_TO_BACKUP/ELAB/
+#rsync -haz --delete --rsh='ssh -p4000' /var/spool /home REMOTECOMP:/PATH_TO_BACKUP/ELAB/B/
+rsync -haz --delete  --rsh='ssh -p4000' /root /home REMOTECOMP:/PATH_TO_BACKUP/ELAB/
 
 
 FINISH=$(date +%s)
