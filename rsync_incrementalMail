@@ -38,7 +38,7 @@ TMPATH=/tmp/fs
 
 #### SEKCIJA 2
 # varijable koje omogucavaju prilagodjavanje putanja
-IPADDR="147.91.42.75"
+IPADDR="REMOTE_HOST_IP"
 PORT="4000"
 SRCDIR="/home"
 DSTDIR="/home/BACKUP/ELAB/incrimentbackup/"
