@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# skirpta se pokrece na backup strani
 # ovo bqackupje baze incremnetal
-rsync -haz -i --rsh='ssh -p4000' 147.91.42.159:/var/dbbackup/ /home/BACKUP/SERVISI/akreditacija2019_baza/
-chown mssql:mssql -R /home/BACKUP/SERVISI/akreditacija2019_baza/
+rsync -haz -i --rsh='ssh -p4000' SOURCE_KOMP:/putanja_do_mssql_baza/ /DETINATION/putanja_do_backupa/
+chown mssql:mssql -R /DETINATION/putanja_do_backupa/
