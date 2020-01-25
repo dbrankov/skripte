@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# ova skripta kopira rsync avz argumentom sve mailove bez dovecot indexa
+# stare dana onoliko koliko pise u varijabli DAY
+
+
+#### argumenti skripte
+# Ako zelis da pokrenes dry-run dopisi startuj skriptu
+# sh backupmail.sh dry
+#
+# skripa ce obrisati folder sa danasnjim danom
+# i napravice prazan folder istog imena BEZ sadrzaja
+#
+
+DRYRUN=$1
+
+# kada je zapoceta
+START=$(date +%s)
+
+
+# skripta se zasniva na pronalazenju fajlova starijih od 1 dana
+DAY=1
+
+#### SEKCIJA 1
+# definisi dan u mesecu i posle ga koristi da kreiras
+# folder sa tim danom u zeljenoj putanji
+
+DATUM=`date '+%d'`
+#echo "dan je $DATUM u mesecu"
+
+
+
+# spisak fajlova se spusta u /tmp/fs/1danfile.txt
+TMPFILE=1danfile.txt
+TMPATH=/tmp/fs
+[ -e $TMPATH/$TMPFILE ] && rm $TMPATH/$TMPFILE
+
+
+#### SEKCIJA 2
+# varijable koje omogucavaju prilagodjavanje putanja
+IPADDR="147.91.42.75"
+PORT="4000"
+SRCDIR="/home"
+DSTDIR="/home/BACKUP/ELAB/incrimentbackup/"
+
+
+
+# ako ima nesto u putanji sa datumom obrisi ga i napravi novi
+#[ -e $DSTDIR/$DATUM ] && rm -rf $DSTDIR/$DATUM
+#mkdir -p $DSTDIR/$DATUM
+
+
+
+
+### AKO JE DRYRUN STARTOVAN...
+if [ "$DRYRUN" = "dry" ]; then
+  DRYRUNCMD="--dry-run"
+  echo "Dry run initiated..."
+fi
+
+
+##### ODAVDE SE NESTO I RADI I DESAVA
+# promeni putanju u source dir
+# nadji fajlove i zapisi ih u tmp/fajl
+# uradi rsync
+
+cd $SRCDIR
+find . -mtime $DAY ! -name dovecot* > $TMPATH/$TMPFILE
+#rsync -avz $DRYRUNCMD --files-from="$TMPATH/$TMPFILE" $SRCDIR $DSTDIR/$DATUM
+
+### dry-run uvek
+rsync -av $DRYRUNCMD --log-file /var/log/rsync_incremnet.log --rsh='ssh -p4000' --files-from="$TMPATH/$TMPFILE" $SRCDIR $IPADDR:$DSTDIR
+
+# kada je yavrsen rsync
+FINISH=$(date +%s)
+
+
+
+echo "total time: $(( ($FINISH-$START) / 60 )) minutes, $(( ($FINISH-$START) % 60 )) seconds"
+
+# NAPRAVLJENA JE INCRIMENT KOPIJA NA DESTINACIJI
+#
+# skritpa na strani backupa bi trebala da brise sve fajlove starije od n dana
+#
+#
+#### KRAJ RADA
+
