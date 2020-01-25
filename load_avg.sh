@@ -34,9 +34,9 @@ cpua=$(echo "($cpuavg+0.5)/1" | bc)
 
 
 # email adrese za report
-madresa="dusan@vin.bg.ac.rs"
-imadresa2="ivan_m@vin.bg.ac.rs"
-madresa3="support@tmf.bg.ac.rs"
+madresa="mail1@mail.com"
+madresa2="mail2@mail.com"
+madresa3="mail3@mail.com"
 
 
 
