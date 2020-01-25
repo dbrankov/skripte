@@ -13,12 +13,12 @@ madresa="support@tmf.bg.ac.rs"
 
 # parametri baze
 
-dbuser="new"
-dbpass="thething1234"
-dbbase="nss_mysql"
-dbtable="user"
-username="p2"
-password="promenime1234"
+dbuser="db_user"
+dbpass="db_password"
+dbbase="db_name"
+dbtable="db_tabela"
+#username="p2"
+password="nekipassword"
 password=`openssl passwd -1 -salt xyz $password`
 
 # ovo su stringovi koji ce upisati useru sifru jebise1234
