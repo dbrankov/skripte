@@ -4,7 +4,7 @@
 # BRISI MAILOVE STARIJE OD $DAN
 # iz incrimental foldera
 
-PUTANJA="/home/BACKUP/ELAB/incrimentbackup/"
+PUTANJA="/putanja incrimnetal foldera/"
 DAN=60
 
 find $PUTANJA -type f -mtime +$DAN -exec rm {} \;
