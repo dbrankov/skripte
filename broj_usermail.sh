@@ -9,7 +9,7 @@
 
 krit_broj=50
 
-madresa="support@tmf.bg.ac.rs"
+madresa="mail@mail.com"
 
 # parametri baze
 
