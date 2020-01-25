@@ -4,7 +4,7 @@
 
 START=$(date +%s)
 
-##rsync -haz --delete -i  --exclude={/var/*,/dev/*,/proc/*,/sys/*,/tmp/*,/mnt/*,/media/*,/root/backup/novi/*} /* 147.91.42.75:/home/BACKUP/Mail/
+##rsync -haz --delete -i  --exclude={/var/*,/dev/*,/proc/*,/sys/*,/tmp/*,/mnt/*,/media/*,/root/backup/novi/*} /* REMOTE_HOST:/path_to_BACKUP/Mail/
 
 cd /root/skripte
 
